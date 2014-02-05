@@ -1,3 +1,11 @@
-### YYCjs Slide Template
+### JavaScript - The weird parts
 
-Our template for our monthly slide deck using [landslide](https://github.com/adamzap/landslide). Feel free to rip it off if you would like.
+This session goes over the weird parts of JavaScript like
+
+- Operators
+- Truthy and Falsyness
+- Equality
+- Scope
+- Prototypal inheritance
+- `this`
+- Asynchronous programming

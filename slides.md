@@ -53,27 +53,130 @@
 
 - [__O__bject __O__riented __P__rogramming](http://en.wikipedia.org/wiki/Object-oriented_programming) basics (classes, objects, inheritance)
 - JavaScript language basics
-    - __Operators:__ `[]`, `&&`, `==`, `||` 
-    - __Arrays:__ and __Objects__ `[].push`, `{}`
-    - __Functions:__ `var fn = function(param1, param2) {}` 
+    - __Operators__ `[]`, `&&`, `==`, `||` 
+    - __Arrays__ and __Objects__ `[].push`, `{}`
+    - __Functions__ `var fn = function(param1, param2) {}` 
 - Some jQuery
-    - __Selectors:__ `tagname`, `#myId`, `.class`
-    - __Event handlers:__ `$('selector').click(function() { alert('clicked'); })`
+    - __Selectors__ `tagname`, `#myId`, `.class`
+    - __Event handlers__ `$('selector').click(function() { alert('clicked'); })`
 
 ---
 
-## But what the?
+## Welcome to the weird side
 
 - truthy and falsyness
 - Equality
 - Prototypes
 - Scope
 - `this`
-- Asynch-stuff
+- Asynchronous programming
+- EcmaScript 5 and 6
+
+---
+
+## Is there more than one way to...
+
+__Accessing object properties__
+
+    !javascript
+    var person = {
+      name: 'david',
+      '&weird property': 'YYCJS'
+    }
+
+    person.name // -> David
+    person['name'] // -> David
+    person["name"] // -> David
+    person['&weird property'] // -> YYCJS
+
+    // ERROR
+    persone.&weird property
+
+__Declaring functions__
+
+    !javascript
+    var myFunction = function(arg) {
+
+    }
+    // (usually) the same as
+    function myFunction(arg) {
+
+    }
 
 ---
 
 ## Truthy- and falsyness
+
+__Truthyness__
+
+    !javascript
+    var person = { name: 'David' }
+    
+    if(person.name) {
+      // Do stuff if property exists
+    }
+
+    if(1 == 1) {
+
+    }
+
+__Falsy values__
+
+    !javascript
+    false
+    null
+    undefined
+    0
+    ''
+    []
+    person.undefinedProperty
+
+---
+
+## Equality or `==` vs `===`
+
+`==` compares value & truthy- falsyness
+
+    !javascript
+    1 == 1 // -> true
+    1 == '1' // -> true
+    1 == 2 // -> true
+    '' == false // -> true
+    [] == '' // -> true
+    null == undefined // -> true
+
+`===` compares value __and__ type
+
+    !javascript
+    1 === 1 // -> true
+    1 === '1' // -> false
+    [] === '' // -> false
+
+### ALWAYS USE ===
+
+---
+
+# Prototypal inheritance
+
+---
+
+## Class based inheritance
+
+---
+
+## JavaScript only knows objects and 
+
+---
+
+## Scope
+
+---
+
+## What is `this`?
+
+---
+
+## Asynchronous programming
 
 ---
 
