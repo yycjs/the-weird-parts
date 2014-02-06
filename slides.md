@@ -90,7 +90,7 @@ __Accessing object properties__
     person['&weird property'] // -> YYCJS
 
     // ERROR
-    persone.&weird property
+    person.&weird property
 
 ---
 
@@ -212,7 +212,7 @@ Variables declared without `var` will automatically become global
 
 __You probably never want that__.
 
-If you do, add and acces them through the `window` object (browsers) explicitly:
+If you do, add and access them through the `window` object (browsers) explicitly:
 
     !javascript
     function test() {
