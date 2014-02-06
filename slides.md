@@ -12,6 +12,15 @@
 
 * GitHub: [ekryski.github.com](http://ekryski.github.com), Twitter: [@ekryski](http://twitter.com/ekryski)
 
+
+Presentation:
+
+- [yycjs.com/the-weird-parts](http://yycjs.com/the-weird-parts)
+
+Codecast:
+
+- [jsbin.com/zino/watch](http://jsbin.com/zino/watch)
+
 ---
 
 ## Our Sponsors
@@ -64,11 +73,12 @@
 
 ## Welcome to the weird side
 
+- functions
 - truthy and falsyness
 - Equality
-- Prototypes
 - Scope
 - `this`
+- Prototypes
 - Asynchronous programming
 - ECMAScript 5 and 6
 
@@ -76,7 +86,7 @@
 
 ## Warm up...
 
-__Accessing object properties__
+Accessing object properties
 
     !javascript
     var person = {
@@ -94,7 +104,7 @@ __Accessing object properties__
 
 ---
 
-## Declaring functions and `arguments`
+## Functions and `arguments`
 
 Functions are treated just like any other variable:
 
@@ -107,8 +117,9 @@ Functions are treated just like any other variable:
 
     }
 
-`arguments` is a special keyword that contains all parameters passed to the function call:
+`arguments` is a special array-like variable that contains all parameters passed to the function call:
 
+    !javascript
     function sum() {
         var sum = 0;
         for(var i = 0; i < arguments.length; i++) {
@@ -162,7 +173,7 @@ __Falsy values__
     [] == false // -> true
     null == undefined // -> true
 
-`===` and `!==` compare value __and__ type
+`===` and `!==` compare value _and_ type
 
     !javascript
     1 === 1 // -> true
@@ -208,9 +219,8 @@ Variables declared without `var` will automatically become global
     }
 
     test();
-    console.log(global, local);
 
-__You probably never want that__.
+You probably never want that.
 
 If you do, add and access them through the `window` object (browsers) explicitly:
 
@@ -221,7 +231,6 @@ If you do, add and access them through the `window` object (browsers) explicitly
     }
 
     test();
-    console.log(window.global, local);
 
 ---
 
@@ -231,7 +240,7 @@ Introduce a new scope by passing variables to a wrapper function.
 
     !javascript
     for(var i = 0; i < 10; i++) {
-        var button = $('<button>').html(i);
+        var button = $('<button>Button #' + i + '</button>');
         var wrapper = function(counter) {
             button.click(function() {
                 alert(counter);
@@ -283,13 +292,34 @@ There are three rules for what `this` can be:
     !javascript
     new Dog('Goofy');
 
-3) The owner has been changed with [call](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) or [apply](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
+3) The owner has been changed with [call](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call), [apply](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) or [bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind).
 
     !javascript
     sayHi.call(owner, arg1, arg2);
     sayHi.apply(owner, argsArray);
 
-Otherwise `this` will be the global (`window`) object.
+    var boundSayHi = sayHi.bind(owner);
+
+Otherwise `this` will be the global (`window`) object (or `undefined` in strict mode).
+
+---
+
+## `this` and callbacks
+
+Callbacks are used for asynchronous operations (the A in Ajax). 
+
+Always remember that in the callback you will loose the original `this`:
+
+    !javascript
+    $('button').click(function() {
+        // Store the old this reference (the clicked button)
+        var self = this;
+
+        $.getJSON('someFile.json', function(data) {
+            // Set the button content
+            self.html(data.text);
+        });
+    });
 
 ___
 
@@ -297,19 +327,13 @@ ___
 
 ---
 
-## Class based inheritance
-
-Inheritance by extending a class (blueprint) and instantiating it.
+## Classes vs. Prototypes
 
 ---
 
 ## JavaScript only knows objects
 
 Inheritance by pointing an objects prototype to another object.
-
----
-
-## Animal farm
 
     !javascript
     var Animal = function() {
@@ -334,32 +358,34 @@ Inheritance by pointing an objects prototype to another object.
 
 ---
 
-## Calling parent prototype (super) methods
+## Overriding existing methods
 
 If you want to overwrite an existing method but use the old result you
-need to `call` or `apply` the function with the current `this` reference:
+need to `call` or `apply` the old function with the current `this` reference and `arguments`:
 
     !javascript
     Dog.prototype.makeSound = function() {
-        var animalSound = Animal.prototype.makeSound.apply(this, arguments);
-        return this.sound + animalSound;
+        var oldSound = Animal.prototype.makeSound.apply(this, arguments);
+        return this.sound + ' ' + oldSound;
     }
 
     var goofy = new Dog();
     var garfield = new Cat();
 
     alert(goofy.makeSound());
-    alert(garfield.makeSound();
+    alert(garfield.makeSound());
 
 ---
 
-## The true JavaScript way
+## The true ECMAScript 5 way
+
+Uses only objects and inherits with `Object.create(prototypeObject)`
 
     !javascript
     var Animal = {
         sound: 'blubb',
         makeSound: function() {
-            alert(this.sound + '!');
+            return this.sound + '!';
         }
     }
 
@@ -372,16 +398,35 @@ need to `call` or `apply` the function with the current `this` reference:
     var goofy = Object.create(Dog);
     var garfield = Object.create(Cat);
 
-    goofy.makeSound();
-    garfield.makeSound();
+    alert(goofy.makeSound());
+    alert(garfield.makeSound();
 
 ---
 
-## Asynchronous programming
+## This year
+
+We will try to make all meetups available online (but lure you to come out with swag, pizza and beverages).
+
+From now on meetups will be split into two parts:
+
+1. The First 1 hour block will be on beginner topics (basic JavaScript, jQuery, CSS, HTML)
+2. The Second 1 hour block will be on a (related) advanced topic
+
+![BeerJS](images/beerjs.png)
 
 ---
 
-## Next Month
+## Thursday, March 27th 2014
 
-* Something awesome
-* More awesomeness
+1. jQuery 202
+
+    - Un-spaghetti and modularize your code
+    - Adanced selectors and DOM traversal
+    - Making your code faster
+    - Writing your own plugins
+
+2. Web components - the future of web development
+
+    - Introduction to web components with Polymer
+    - Data driven views
+    - Build web components now with CanJS

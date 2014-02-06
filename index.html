@@ -80,7 +80,7 @@
             </aside>
             
             <aside class="page_number">
-              1/22
+              1/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -102,6 +102,14 @@
 <h2>Eric Kryski</h2>
 <ul>
 <li>GitHub: <a href="http://ekryski.github.com">ekryski.github.com</a>, Twitter: <a href="http://twitter.com/ekryski">@ekryski</a></li>
+</ul>
+<p>Presentation:</p>
+<ul>
+<li><a href="http://yycjs.com/the-weird-parts">yycjs.com/the-weird-parts</a></li>
+</ul>
+<p>Codecast:</p>
+<ul>
+<li><a href="http://jsbin.com/zino/watch">jsbin.com/zino/watch</a></li>
 </ul></section>
             
           </div>
@@ -118,7 +126,7 @@
             </aside>
             
             <aside class="page_number">
-              2/22
+              2/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -152,7 +160,7 @@
             </aside>
             
             <aside class="page_number">
-              3/22
+              3/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -184,7 +192,7 @@
             </aside>
             
             <aside class="page_number">
-              4/22
+              4/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -226,7 +234,7 @@
             </aside>
             
             <aside class="page_number">
-              5/22
+              5/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -270,7 +278,7 @@
             </aside>
             
             <aside class="page_number">
-              6/22
+              6/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -286,11 +294,12 @@
             
             
             <section><ul>
+<li>functions</li>
 <li>truthy and falsyness</li>
 <li>Equality</li>
-<li>Prototypes</li>
 <li>Scope</li>
 <li><code>this</code></li>
+<li>Prototypes</li>
 <li>Asynchronous programming</li>
 <li>ECMAScript 5 and 6</li>
 </ul></section>
@@ -309,7 +318,7 @@
             </aside>
             
             <aside class="page_number">
-              7/22
+              7/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -324,7 +333,7 @@
             <header><h2>Warm up...</h2></header>
             
             
-            <section><p><strong>Accessing object properties</strong></p>
+            <section><p>Accessing object properties</p>
 <div class="highlight"><pre><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;david&#39;</span><span class="p">,</span>
   <span class="s1">&#39;&amp;weird property&#39;</span><span class="o">:</span> <span class="s1">&#39;YYCJS&#39;</span>
@@ -336,17 +345,7 @@
 <span class="nx">person</span><span class="p">[</span><span class="s1">&#39;&amp;weird property&#39;</span><span class="p">]</span> <span class="c1">// -&gt; YYCJS</span>
 
 <span class="c1">// ERROR</span>
-<span class="nx">persone</span><span class="p">.</span><span class="o">&amp;</span><span class="nx">weird</span> <span class="nx">property</span>
-</pre></div>
-
-<p><strong>Declaring functions</strong></p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">myFunction</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>
-
-<span class="p">}</span>
-<span class="c1">// (usually) the same as</span>
-<span class="kd">function</span> <span class="nx">myFunction</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>
-
-<span class="p">}</span>
+<span class="nx">person</span><span class="p">.</span><span class="o">&amp;</span><span class="nx">weird</span> <span class="nx">property</span>
 </pre></div>
 </section>
             
@@ -364,7 +363,59 @@
             </aside>
             
             <aside class="page_number">
-              8/22
+              8/24
+            </aside>
+            <img class="logo" src="theme/img/yycjs-logo.png">
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>Functions and <code>arguments</code></h2></header>
+            
+            
+            <section><p>Functions are treated just like any other variable:</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">myFunction</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>
+
+<span class="p">}</span>
+<span class="c1">// the same as</span>
+<span class="kd">function</span> <span class="nx">myFunction</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+
+<p><code>arguments</code> is a special array-like variable that contains all parameters passed to the function call:</p>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">sum</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">sum</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="c1">// -&gt; 10</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -415,7 +466,7 @@
             </aside>
             
             <aside class="page_number">
-              9/22
+              10/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -441,7 +492,7 @@
 <span class="kc">null</span> <span class="o">==</span> <span class="kc">undefined</span> <span class="c1">// -&gt; true</span>
 </pre></div>
 
-<p><code>===</code> and <code>!==</code> compare value <strong>and</strong> type</p>
+<p><code>===</code> and <code>!==</code> compare value <em>and</em> type</p>
 <div class="highlight"><pre><span class="mi">1</span> <span class="o">===</span> <span class="mi">1</span> <span class="c1">// -&gt; true</span>
 <span class="mi">1</span> <span class="o">===</span> <span class="s1">&#39;1&#39;</span> <span class="c1">// -&gt; false</span>
 <span class="mi">1</span> <span class="o">===</span> <span class="nb">parseInt</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span> <span class="c1">// -&gt; true</span>
@@ -465,7 +516,7 @@
             </aside>
             
             <aside class="page_number">
-              10/22
+              11/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -511,7 +562,7 @@
             </aside>
             
             <aside class="page_number">
-              11/22
+              12/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -533,18 +584,16 @@
 <span class="p">}</span>
 
 <span class="nx">test</span><span class="p">();</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">global</span><span class="p">,</span> <span class="nx">local</span><span class="p">);</span>
 </pre></div>
 
-<p><strong>You probably never want that</strong>.</p>
-<p>If you do, add and acces them through the <code>window</code> object (browsers) explicitly:</p>
+<p>You probably never want that.</p>
+<p>If you do, add and access them through the <code>window</code> object (browsers) explicitly:</p>
 <div class="highlight"><pre><span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">local</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
     <span class="nb">window</span><span class="p">.</span><span class="nx">global</span> <span class="o">=</span> <span class="s1">&#39;global&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nx">test</span><span class="p">();</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">global</span><span class="p">,</span> <span class="nx">local</span><span class="p">);</span>
 </pre></div>
 </section>
             
@@ -562,7 +611,7 @@
             </aside>
             
             <aside class="page_number">
-              12/22
+              13/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -579,7 +628,7 @@
             
             <section><p>Introduce a new scope by passing variables to a wrapper function.</p>
 <div class="highlight"><pre><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;button&gt;&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;button&gt;Button #&#39;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s1">&#39;&lt;/button&gt;&#39;</span><span class="p">);</span>
     <span class="kd">var</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">counter</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">button</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
             <span class="nx">alert</span><span class="p">(</span><span class="nx">counter</span><span class="p">);</span>
@@ -606,7 +655,7 @@
             </aside>
             
             <aside class="page_number">
-              13/22
+              14/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -654,7 +703,7 @@
             </aside>
             
             <aside class="page_number">
-              14/22
+              15/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -678,12 +727,14 @@
 <div class="highlight"><pre><span class="k">new</span> <span class="nx">Dog</span><span class="p">(</span><span class="s1">&#39;Goofy&#39;</span><span class="p">);</span>
 </pre></div>
 
-<p>3) The owner has been changed with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call">call</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply">apply</a></p>
+<p>3) The owner has been changed with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call">call</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply">apply</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">bind</a>.</p>
 <div class="highlight"><pre><span class="nx">sayHi</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">owner</span><span class="p">,</span> <span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">);</span>
 <span class="nx">sayHi</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">owner</span><span class="p">,</span> <span class="nx">argsArray</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">boundSayHi</span> <span class="o">=</span> <span class="nx">sayHi</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="nx">owner</span><span class="p">);</span>
 </pre></div>
 
-<p>Otherwise <code>this</code> will be the global (<code>window</code>) object.</p></section>
+<p>Otherwise <code>this</code> will be the global (<code>window</code>) object (or <code>undefined</code> in strict mode).</p></section>
             
           </div>
           <div class="presenter_notes">
@@ -699,7 +750,50 @@
             </aside>
             
             <aside class="page_number">
-              15/22
+              16/24
+            </aside>
+            <img class="logo" src="theme/img/yycjs-logo.png">
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2><code>this</code> and callbacks</h2></header>
+            
+            
+            <section><p>Callbacks are used for asynchronous operations (the A in Ajax). </p>
+<p>Always remember that in the callback you will loose the original <code>this</code>:</p>
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;button&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Store the old this reference (the clicked button)</span>
+    <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+
+    <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span><span class="s1">&#39;someFile.json&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Set the button content</span>
+        <span class="nx">self</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              17/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -728,7 +822,7 @@
             </aside>
             
             <aside class="page_number">
-              16/22
+              18/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -740,10 +834,8 @@
         <div class="slide">
           <div class="inner">
             
-            <header><h2>Class based inheritance</h2></header>
+            <header><h2>Classes vs. Prototypes</h2></header>
             
-            
-            <section><p>Inheritance by extending a class (blueprint) and instantiating it.</p></section>
             
           </div>
           <div class="presenter_notes">
@@ -759,38 +851,7 @@
             </aside>
             
             <aside class="page_number">
-              17/22
-            </aside>
-            <img class="logo" src="theme/img/yycjs-logo.png">
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: slides.md -->
-      <div class="slide-wrapper">
-        <div class="slide">
-          <div class="inner">
-            
-            <header><h2>JavaScript only knows objects</h2></header>
-            
-            
-            <section><p>Inheritance by pointing an objects prototype to another object.</p></section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="slides.md">slides.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              18/22
+              19/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -802,15 +863,16 @@
         <div class="slide has_code">
           <div class="inner">
             
-            <header><h2>Animal farm</h2></header>
+            <header><h2>JavaScript only knows objects</h2></header>
             
             
-            <section><div class="highlight"><pre><span class="kd">var</span> <span class="nx">Animal</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <section><p>Inheritance by pointing an objects prototype to another object.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">Animal</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">sound</span> <span class="o">=</span> <span class="s1">&#39;blubb&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="nx">Animal</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">makeSound</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">sound</span> <span class="o">+</span> <span class="s1">&#39;!&#39;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">sound</span> <span class="o">+</span> <span class="s1">&#39;!&#39;</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kd">var</span> <span class="nx">Dog</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -824,12 +886,6 @@
 <span class="p">}</span>
 
 <span class="nx">Cat</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Animal</span><span class="p">();</span>
-
-<span class="kd">var</span> <span class="nx">goofy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dog</span><span class="p">();</span>
-<span class="kd">var</span> <span class="nx">garfield</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cat</span><span class="p">();</span>
-
-<span class="nx">goofy</span><span class="p">.</span><span class="nx">makeSound</span><span class="p">();</span>
-<span class="nx">garfield</span><span class="p">.</span><span class="nx">makeSound</span><span class="p">();</span>
 </pre></div>
 </section>
             
@@ -847,7 +903,7 @@
             </aside>
             
             <aside class="page_number">
-              19/22
+              20/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -859,13 +915,58 @@
         <div class="slide has_code">
           <div class="inner">
             
-            <header><h2>The true JavaScript way</h2></header>
+            <header><h2>Overriding existing methods</h2></header>
             
             
-            <section><div class="highlight"><pre><span class="kd">var</span> <span class="nx">Animal</span> <span class="o">=</span> <span class="p">{</span>
+            <section><p>If you want to overwrite an existing method but use the old result you
+need to <code>call</code> or <code>apply</code> the old function with the current <code>this</code> reference and <code>arguments</code>:</p>
+<div class="highlight"><pre><span class="nx">Dog</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">makeSound</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">oldSound</span> <span class="o">=</span> <span class="nx">Animal</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">makeSound</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">sound</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nx">oldSound</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">goofy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dog</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">garfield</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cat</span><span class="p">();</span>
+
+<span class="nx">alert</span><span class="p">(</span><span class="nx">goofy</span><span class="p">.</span><span class="nx">makeSound</span><span class="p">());</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">garfield</span><span class="p">.</span><span class="nx">makeSound</span><span class="p">());</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              21/24
+            </aside>
+            <img class="logo" src="theme/img/yycjs-logo.png">
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>The true ECMAScript 5 way</h2></header>
+            
+            
+            <section><p>Uses only objects and inherits with <code>Object.create(prototypeObject)</code></p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">Animal</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">sound</span><span class="o">:</span> <span class="s1">&#39;blubb&#39;</span><span class="p">,</span>
     <span class="nx">makeSound</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">sound</span> <span class="o">+</span> <span class="s1">&#39;!&#39;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">sound</span> <span class="o">+</span> <span class="s1">&#39;!&#39;</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
@@ -878,8 +979,8 @@
 <span class="kd">var</span> <span class="nx">goofy</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Dog</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">garfield</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Cat</span><span class="p">);</span>
 
-<span class="nx">goofy</span><span class="p">.</span><span class="nx">makeSound</span><span class="p">();</span>
-<span class="nx">garfield</span><span class="p">.</span><span class="nx">makeSound</span><span class="p">();</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">goofy</span><span class="p">.</span><span class="nx">makeSound</span><span class="p">());</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">garfield</span><span class="p">.</span><span class="nx">makeSound</span><span class="p">();</span>
 </pre></div>
 </section>
             
@@ -897,7 +998,7 @@
             </aside>
             
             <aside class="page_number">
-              20/22
+              22/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -909,8 +1010,16 @@
         <div class="slide">
           <div class="inner">
             
-            <header><h2>Asynchronous programming</h2></header>
+            <header><h2>This year</h2></header>
             
+            
+            <section><p>We will try to make all meetups available online (but lure you to come out with swag, pizza and beverages).</p>
+<p>From now on meetups will be split into two parts:</p>
+<ol>
+<li>The First 1 hour block will be on beginner topics (basic JavaScript, jQuery, CSS, HTML)</li>
+<li>The Second 1 hour block will be on a (related) advanced topic</li>
+</ol>
+<p><img alt="BeerJS" src="images/beerjs.png" /></p></section>
             
           </div>
           <div class="presenter_notes">
@@ -926,7 +1035,7 @@
             </aside>
             
             <aside class="page_number">
-              21/22
+              23/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -938,13 +1047,28 @@
         <div class="slide">
           <div class="inner">
             
-            <header><h2>Next Month</h2></header>
+            <header><h2>Thursday, March 27th 2014</h2></header>
             
             
-            <section><ul>
-<li>Something awesome</li>
-<li>More awesomeness</li>
-</ul></section>
+            <section><ol>
+<li>
+<p>jQuery 202</p>
+<ul>
+<li>Un-spaghetti and modularize your code</li>
+<li>Adanced selectors and DOM traversal</li>
+<li>Making your code faster</li>
+<li>Writing your own plugins</li>
+</ul>
+</li>
+<li>
+<p>Web components - the future of web development</p>
+<ul>
+<li>Introduction to web components with Polymer</li>
+<li>Data driven views</li>
+<li>Build web components now with CanJS</li>
+</ul>
+</li>
+</ol></section>
             
           </div>
           <div class="presenter_notes">
@@ -960,7 +1084,7 @@
             </aside>
             
             <aside class="page_number">
-              22/22
+              24/24
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -1017,76 +1141,86 @@
         </tr>
         
         <tr id="toc-row-9" class="sub">
-          <th><a href="#slide9">Truthy- and falsyness</a></th>
+          <th><a href="#slide9">Functions and <code>arguments</code></a></th>
           <td><a href="#slide9">9</a></td>
         </tr>
         
         <tr id="toc-row-10" class="sub">
-          <th><a href="#slide10">Equality or <code>==</code> vs <code>===</code></a></th>
+          <th><a href="#slide10">Truthy- and falsyness</a></th>
           <td><a href="#slide10">10</a></td>
         </tr>
         
         <tr id="toc-row-11" class="sub">
-          <th><a href="#slide11">Scope in JavaScript</a></th>
+          <th><a href="#slide11">Equality or <code>==</code> vs <code>===</code></a></th>
           <td><a href="#slide11">11</a></td>
         </tr>
         
         <tr id="toc-row-12" class="sub">
-          <th><a href="#slide12">Global variables</a></th>
+          <th><a href="#slide12">Scope in JavaScript</a></th>
           <td><a href="#slide12">12</a></td>
         </tr>
         
         <tr id="toc-row-13" class="sub">
-          <th><a href="#slide13">Closures</a></th>
+          <th><a href="#slide13">Global variables</a></th>
           <td><a href="#slide13">13</a></td>
         </tr>
         
         <tr id="toc-row-14" class="sub">
-          <th><a href="#slide14">What is <code>this</code>?</a></th>
+          <th><a href="#slide14">Closures</a></th>
           <td><a href="#slide14">14</a></td>
         </tr>
         
         <tr id="toc-row-15" class="sub">
-          <th><a href="#slide15">The Trinity of <code>this</code></a></th>
+          <th><a href="#slide15">What is <code>this</code>?</a></th>
           <td><a href="#slide15">15</a></td>
         </tr>
         
-      
-      
-      <tr id="toc-row-16">
-        <th><a href="#slide16">Prototypes</a></th>
-        <td><a href="#slide16">16</a></td>
-      </tr>
-      
+        <tr id="toc-row-16" class="sub">
+          <th><a href="#slide16">The Trinity of <code>this</code></a></th>
+          <td><a href="#slide16">16</a></td>
+        </tr>
         
         <tr id="toc-row-17" class="sub">
-          <th><a href="#slide17">Class based inheritance</a></th>
+          <th><a href="#slide17"><code>this</code> and callbacks</a></th>
           <td><a href="#slide17">17</a></td>
         </tr>
         
-        <tr id="toc-row-18" class="sub">
-          <th><a href="#slide18">JavaScript only knows objects</a></th>
-          <td><a href="#slide18">18</a></td>
-        </tr>
+      
+      
+      <tr id="toc-row-18">
+        <th><a href="#slide18">Prototypes</a></th>
+        <td><a href="#slide18">18</a></td>
+      </tr>
+      
         
         <tr id="toc-row-19" class="sub">
-          <th><a href="#slide19">Animal farm</a></th>
+          <th><a href="#slide19">Classes vs. Prototypes</a></th>
           <td><a href="#slide19">19</a></td>
         </tr>
         
         <tr id="toc-row-20" class="sub">
-          <th><a href="#slide20">The true JavaScript way</a></th>
+          <th><a href="#slide20">JavaScript only knows objects</a></th>
           <td><a href="#slide20">20</a></td>
         </tr>
         
         <tr id="toc-row-21" class="sub">
-          <th><a href="#slide21">Asynchronous programming</a></th>
+          <th><a href="#slide21">Overriding existing methods</a></th>
           <td><a href="#slide21">21</a></td>
         </tr>
         
         <tr id="toc-row-22" class="sub">
-          <th><a href="#slide22">Next Month</a></th>
+          <th><a href="#slide22">The true ECMAScript 5 way</a></th>
           <td><a href="#slide22">22</a></td>
+        </tr>
+        
+        <tr id="toc-row-23" class="sub">
+          <th><a href="#slide23">This year</a></th>
+          <td><a href="#slide23">23</a></td>
+        </tr>
+        
+        <tr id="toc-row-24" class="sub">
+          <th><a href="#slide24">Thursday, March 27th 2014</a></th>
+          <td><a href="#slide24">24</a></td>
         </tr>
         
       
