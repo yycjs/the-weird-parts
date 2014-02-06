@@ -80,7 +80,7 @@
             </aside>
             
             <aside class="page_number">
-              1/17
+              1/22
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -118,7 +118,7 @@
             </aside>
             
             <aside class="page_number">
-              2/17
+              2/22
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -152,7 +152,7 @@
             </aside>
             
             <aside class="page_number">
-              3/17
+              3/22
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -184,7 +184,7 @@
             </aside>
             
             <aside class="page_number">
-              4/17
+              4/22
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -226,7 +226,7 @@
             </aside>
             
             <aside class="page_number">
-              5/17
+              5/22
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -270,7 +270,7 @@
             </aside>
             
             <aside class="page_number">
-              6/17
+              6/22
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -292,7 +292,7 @@
 <li>Scope</li>
 <li><code>this</code></li>
 <li>Asynchronous programming</li>
-<li>EcmaScript 5 and 6</li>
+<li>ECMAScript 5 and 6</li>
 </ul></section>
             
           </div>
@@ -309,7 +309,7 @@
             </aside>
             
             <aside class="page_number">
-              7/17
+              7/22
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -321,7 +321,7 @@
         <div class="slide has_code">
           <div class="inner">
             
-            <header><h2>Is there more than one way to...</h2></header>
+            <header><h2>Warm up...</h2></header>
             
             
             <section><p><strong>Accessing object properties</strong></p>
@@ -364,7 +364,7 @@
             </aside>
             
             <aside class="page_number">
-              8/17
+              8/22
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -397,7 +397,6 @@
 <span class="kc">undefined</span>
 <span class="mi">0</span>
 <span class="s1">&#39;&#39;</span>
-<span class="p">[]</span>
 <span class="nx">person</span><span class="p">.</span><span class="nx">undefinedProperty</span>
 </pre></div>
 </section>
@@ -416,7 +415,7 @@
             </aside>
             
             <aside class="page_number">
-              9/17
+              9/22
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -431,19 +430,23 @@
             <header><h2>Equality or <code>==</code> vs <code>===</code></h2></header>
             
             
-            <section><p><code>==</code> compares value &amp; truthy- falsyness</p>
+            <section><p><code>==</code> and <code>!=</code> compare the value</p>
 <div class="highlight"><pre><span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span> <span class="c1">// -&gt; true</span>
 <span class="mi">1</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span> <span class="c1">// -&gt; true</span>
-<span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span> <span class="c1">// -&gt; true</span>
+<span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span> <span class="c1">// -&gt; false</span>
+
+<span class="c1">// Now things get weird</span>
 <span class="s1">&#39;&#39;</span> <span class="o">==</span> <span class="kc">false</span> <span class="c1">// -&gt; true</span>
-<span class="p">[]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="c1">// -&gt; true</span>
+<span class="p">[]</span> <span class="o">==</span> <span class="kc">false</span> <span class="c1">// -&gt; true</span>
 <span class="kc">null</span> <span class="o">==</span> <span class="kc">undefined</span> <span class="c1">// -&gt; true</span>
 </pre></div>
 
-<p><code>===</code> compares value <strong>and</strong> type</p>
+<p><code>===</code> and <code>!==</code> compare value <strong>and</strong> type</p>
 <div class="highlight"><pre><span class="mi">1</span> <span class="o">===</span> <span class="mi">1</span> <span class="c1">// -&gt; true</span>
 <span class="mi">1</span> <span class="o">===</span> <span class="s1">&#39;1&#39;</span> <span class="c1">// -&gt; false</span>
-<span class="p">[]</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span> <span class="c1">// -&gt; false</span>
+<span class="mi">1</span> <span class="o">===</span> <span class="nb">parseInt</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span> <span class="c1">// -&gt; true</span>
+<span class="p">[]</span> <span class="o">===</span> <span class="kc">false</span> <span class="c1">// -&gt; false</span>
+<span class="kc">null</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="c1">// -&gt; false</span>
 </pre></div>
 
 <h3>ALWAYS USE ===</h3></section>
@@ -462,7 +465,241 @@
             </aside>
             
             <aside class="page_number">
-              10/17
+              10/22
+            </aside>
+            <img class="logo" src="theme/img/yycjs-logo.png">
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>Scope in JavaScript</h2></header>
+            
+            
+            <section><p>JavaScript only knows function scope and can access all variables from its parent scopes:</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="s1">&#39;outer&#39;</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">count</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="s1">&#39;testing&#39;</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">inner</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nx">inner</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">count</span><span class="p">();</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/22
+            </aside>
+            <img class="logo" src="theme/img/yycjs-logo.png">
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>Global variables</h2></header>
+            
+            
+            <section><p>Variables declared without <code>var</code> will automatically become global</p>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">local</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+    <span class="nx">global</span> <span class="o">=</span> <span class="s1">&#39;global&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">test</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">global</span><span class="p">,</span> <span class="nx">local</span><span class="p">);</span>
+</pre></div>
+
+<p><strong>You probably never want that</strong>.</p>
+<p>If you do, add and acces them through the <code>window</code> object (browsers) explicitly:</p>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">test</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">local</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">global</span> <span class="o">=</span> <span class="s1">&#39;global&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">test</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">global</span><span class="p">,</span> <span class="nx">local</span><span class="p">);</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/22
+            </aside>
+            <img class="logo" src="theme/img/yycjs-logo.png">
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>Closures</h2></header>
+            
+            
+            <section><p>Introduce a new scope by passing variables to a wrapper function.</p>
+<div class="highlight"><pre><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;button&gt;&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">counter</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">button</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="nx">counter</span><span class="p">);</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+
+    <span class="nx">wrapper</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">button</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/22
+            </aside>
+            <img class="logo" src="theme/img/yycjs-logo.png">
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>What is <code>this</code>?</h2></header>
+            
+            
+            <section><p>In JavaScript <code>this</code> refers to the <em>owner</em> of the function you are calling, e.g. with</p>
+<p><strong>Objects</strong></p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span>
+    <span class="nx">sayHi</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Hello &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">person</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">();</span>
+</pre></div>
+
+<p><strong>jQuery</strong></p>
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;button&#39;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="s1">&#39;Button clicked&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/22
+            </aside>
+            <img class="logo" src="theme/img/yycjs-logo.png">
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: slides.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>The Trinity of <code>this</code></h2></header>
+            
+            
+            <section><p>There are three rules for what <code>this</code> can be:</p>
+<p>1) <strong>The object</strong>, when the function is called on an object</p>
+<div class="highlight"><pre><span class="nx">person</span><span class="p">.</span><span class="nx">sayHi</span><span class="p">()</span>
+</pre></div>
+
+<p>2) A function is called with the <code>new</code> operator</p>
+<div class="highlight"><pre><span class="k">new</span> <span class="nx">Dog</span><span class="p">(</span><span class="s1">&#39;Goofy&#39;</span><span class="p">);</span>
+</pre></div>
+
+<p>3) The owner has been changed with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call">call</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply">apply</a></p>
+<div class="highlight"><pre><span class="nx">sayHi</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">owner</span><span class="p">,</span> <span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">);</span>
+<span class="nx">sayHi</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">owner</span><span class="p">,</span> <span class="nx">argsArray</span><span class="p">);</span>
+</pre></div>
+
+<p>Otherwise <code>this</code> will be the global (<code>window</code>) object.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="slides.md">slides.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/22
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -474,7 +711,7 @@
         <div class="slide">
           <div class="inner">
             
-            <header><h1>Prototypal inheritance</h1></header>
+            <header><h1>Prototypes</h1></header>
             
             
           </div>
@@ -491,7 +728,7 @@
             </aside>
             
             <aside class="page_number">
-              11/17
+              16/22
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -506,6 +743,8 @@
             <header><h2>Class based inheritance</h2></header>
             
             
+            <section><p>Inheritance by extending a class (blueprint) and instantiating it.</p></section>
+            
           </div>
           <div class="presenter_notes">
             <header><h1>Presenter Notes</h1></header>
@@ -520,7 +759,7 @@
             </aside>
             
             <aside class="page_number">
-              12/17
+              17/22
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -532,8 +771,10 @@
         <div class="slide">
           <div class="inner">
             
-            <header><h2>JavaScript only knows objects and</h2></header>
+            <header><h2>JavaScript only knows objects</h2></header>
             
+            
+            <section><p>Inheritance by pointing an objects prototype to another object.</p></section>
             
           </div>
           <div class="presenter_notes">
@@ -549,7 +790,7 @@
             </aside>
             
             <aside class="page_number">
-              13/17
+              18/22
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -558,11 +799,39 @@
       
       <!-- slide source: slides.md -->
       <div class="slide-wrapper">
-        <div class="slide">
+        <div class="slide has_code">
           <div class="inner">
             
-            <header><h2>Scope</h2></header>
+            <header><h2>Animal farm</h2></header>
             
+            
+            <section><div class="highlight"><pre><span class="kd">var</span> <span class="nx">Animal</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">sound</span> <span class="o">=</span> <span class="s1">&#39;blubb&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">Animal</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">makeSound</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">sound</span> <span class="o">+</span> <span class="s1">&#39;!&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">Dog</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">sound</span> <span class="o">=</span> <span class="s1">&#39;Woof&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">Dog</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Animal</span><span class="p">();</span>
+
+<span class="kd">var</span> <span class="nx">Cat</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">sound</span> <span class="o">=</span> <span class="s1">&#39;Meow&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">Cat</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Animal</span><span class="p">();</span>
+
+<span class="kd">var</span> <span class="nx">goofy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dog</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">garfield</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cat</span><span class="p">();</span>
+
+<span class="nx">goofy</span><span class="p">.</span><span class="nx">makeSound</span><span class="p">();</span>
+<span class="nx">garfield</span><span class="p">.</span><span class="nx">makeSound</span><span class="p">();</span>
+</pre></div>
+</section>
             
           </div>
           <div class="presenter_notes">
@@ -578,7 +847,7 @@
             </aside>
             
             <aside class="page_number">
-              14/17
+              19/22
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -587,11 +856,32 @@
       
       <!-- slide source: slides.md -->
       <div class="slide-wrapper">
-        <div class="slide">
+        <div class="slide has_code">
           <div class="inner">
             
-            <header><h2>What is <code>this</code>?</h2></header>
+            <header><h2>The true JavaScript way</h2></header>
             
+            
+            <section><div class="highlight"><pre><span class="kd">var</span> <span class="nx">Animal</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">sound</span><span class="o">:</span> <span class="s1">&#39;blubb&#39;</span><span class="p">,</span>
+    <span class="nx">makeSound</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">sound</span> <span class="o">+</span> <span class="s1">&#39;!&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">Dog</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Animal</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">Cat</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Animal</span><span class="p">);</span>
+
+<span class="nx">Dog</span><span class="p">.</span><span class="nx">sound</span> <span class="o">=</span> <span class="s1">&#39;woof&#39;</span><span class="p">;</span>
+<span class="nx">Cat</span><span class="p">.</span><span class="nx">sound</span> <span class="o">=</span> <span class="s1">&#39;meow&#39;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">goofy</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Dog</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">garfield</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Cat</span><span class="p">);</span>
+
+<span class="nx">goofy</span><span class="p">.</span><span class="nx">makeSound</span><span class="p">();</span>
+<span class="nx">garfield</span><span class="p">.</span><span class="nx">makeSound</span><span class="p">();</span>
+</pre></div>
+</section>
             
           </div>
           <div class="presenter_notes">
@@ -607,7 +897,7 @@
             </aside>
             
             <aside class="page_number">
-              15/17
+              20/22
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -636,7 +926,7 @@
             </aside>
             
             <aside class="page_number">
-              16/17
+              21/22
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -670,7 +960,7 @@
             </aside>
             
             <aside class="page_number">
-              17/17
+              22/22
             </aside>
             <img class="logo" src="theme/img/yycjs-logo.png">
           </footer>
@@ -722,7 +1012,7 @@
         </tr>
         
         <tr id="toc-row-8" class="sub">
-          <th><a href="#slide8">Is there more than one way to...</a></th>
+          <th><a href="#slide8">Warm up...</a></th>
           <td><a href="#slide8">8</a></td>
         </tr>
         
@@ -736,42 +1026,67 @@
           <td><a href="#slide10">10</a></td>
         </tr>
         
-      
-      
-      <tr id="toc-row-11">
-        <th><a href="#slide11">Prototypal inheritance</a></th>
-        <td><a href="#slide11">11</a></td>
-      </tr>
-      
+        <tr id="toc-row-11" class="sub">
+          <th><a href="#slide11">Scope in JavaScript</a></th>
+          <td><a href="#slide11">11</a></td>
+        </tr>
         
         <tr id="toc-row-12" class="sub">
-          <th><a href="#slide12">Class based inheritance</a></th>
+          <th><a href="#slide12">Global variables</a></th>
           <td><a href="#slide12">12</a></td>
         </tr>
         
         <tr id="toc-row-13" class="sub">
-          <th><a href="#slide13">JavaScript only knows objects and</a></th>
+          <th><a href="#slide13">Closures</a></th>
           <td><a href="#slide13">13</a></td>
         </tr>
         
         <tr id="toc-row-14" class="sub">
-          <th><a href="#slide14">Scope</a></th>
+          <th><a href="#slide14">What is <code>this</code>?</a></th>
           <td><a href="#slide14">14</a></td>
         </tr>
         
         <tr id="toc-row-15" class="sub">
-          <th><a href="#slide15">What is <code>this</code>?</a></th>
+          <th><a href="#slide15">The Trinity of <code>this</code></a></th>
           <td><a href="#slide15">15</a></td>
         </tr>
         
-        <tr id="toc-row-16" class="sub">
-          <th><a href="#slide16">Asynchronous programming</a></th>
-          <td><a href="#slide16">16</a></td>
-        </tr>
+      
+      
+      <tr id="toc-row-16">
+        <th><a href="#slide16">Prototypes</a></th>
+        <td><a href="#slide16">16</a></td>
+      </tr>
+      
         
         <tr id="toc-row-17" class="sub">
-          <th><a href="#slide17">Next Month</a></th>
+          <th><a href="#slide17">Class based inheritance</a></th>
           <td><a href="#slide17">17</a></td>
+        </tr>
+        
+        <tr id="toc-row-18" class="sub">
+          <th><a href="#slide18">JavaScript only knows objects</a></th>
+          <td><a href="#slide18">18</a></td>
+        </tr>
+        
+        <tr id="toc-row-19" class="sub">
+          <th><a href="#slide19">Animal farm</a></th>
+          <td><a href="#slide19">19</a></td>
+        </tr>
+        
+        <tr id="toc-row-20" class="sub">
+          <th><a href="#slide20">The true JavaScript way</a></th>
+          <td><a href="#slide20">20</a></td>
+        </tr>
+        
+        <tr id="toc-row-21" class="sub">
+          <th><a href="#slide21">Asynchronous programming</a></th>
+          <td><a href="#slide21">21</a></td>
+        </tr>
+        
+        <tr id="toc-row-22" class="sub">
+          <th><a href="#slide22">Next Month</a></th>
+          <td><a href="#slide22">22</a></td>
         </tr>
         
       

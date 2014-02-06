@@ -70,11 +70,11 @@
 - Scope
 - `this`
 - Asynchronous programming
-- EcmaScript 5 and 6
+- ECMAScript 5 and 6
 
 ---
 
-## Is there more than one way to...
+## Warm up...
 
 __Accessing object properties__
 
@@ -128,51 +128,223 @@ __Falsy values__
     undefined
     0
     ''
-    []
     person.undefinedProperty
 
 ---
 
 ## Equality or `==` vs `===`
 
-`==` compares value & truthy- falsyness
+`==` and `!=` compare the value
 
     !javascript
     1 == 1 // -> true
     1 == '1' // -> true
-    1 == 2 // -> true
+    1 == 2 // -> false
+
+    // Now things get weird
     '' == false // -> true
-    [] == '' // -> true
+    [] == false // -> true
     null == undefined // -> true
 
-`===` compares value __and__ type
+`===` and `!==` compare value __and__ type
 
     !javascript
     1 === 1 // -> true
     1 === '1' // -> false
-    [] === '' // -> false
+    1 === parseInt('1') // -> true
+    [] === false // -> false
+    null === undefined // -> false
+
 
 ### ALWAYS USE ===
 
 ---
 
-# Prototypal inheritance
+## Scope in JavaScript
+
+JavaScript only knows function scope and can access all variables from its parent scopes:
+
+    !javascript
+    var x = 'outer';
+    function count() {
+        for(var i = 0; i < 10; i++) {
+            var x = 'testing';
+            var inner = function() {
+                var y = 42;
+            }
+
+            inner();
+        }
+    }
+
+    count();
+
+---
+
+## Global variables
+
+Variables declared without `var` will automatically become global
+
+    !javascript
+    function test() {
+        var local = 42;
+        global = 'global';
+    }
+
+    test();
+    console.log(global, local);
+
+__You probably never want that__.
+
+If you do, add and acces them through the `window` object (browsers) explicitly:
+
+    !javascript
+    function test() {
+        var local = 42;
+        window.global = 'global';
+    }
+
+    test();
+    console.log(window.global, local);
+
+---
+
+## Closures
+
+Introduce a new scope by passing variables to a wrapper function.
+
+    !javascript
+    for(var i = 0; i < 10; i++) {
+        var button = $('<button>').html(i);
+        var wrapper = function(counter) {
+            button.click(function() {
+                alert(counter);
+            });
+        }
+        
+        wrapper(i);
+        $('body').append(button);
+    }
+
+---
+
+## What is `this`?
+
+In JavaScript `this` refers to the _owner_ of the function you are calling, e.g. with
+
+__Objects__
+
+    !javascript
+    var person = {
+        name: 'David',
+        sayHi: function() {
+            alert('Hello ' + this.name);
+        }
+    }
+
+    person.sayHi();
+
+__jQuery__
+
+    !javascript
+    $('button').click(function() {
+        this.html('Button clicked');
+    });
+
+---
+
+## The Trinity of `this`
+
+There are three rules for what `this` can be:
+
+1) __The object__, when the function is called on an object
+
+    !javascript
+    person.sayHi()
+
+2) A function is called with the `new` operator
+
+    !javascript
+    new Dog('Goofy');
+
+3) The owner has been changed with [call](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) or [apply](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
+
+    !javascript
+    sayHi.call(owner, arg1, arg2);
+    sayHi.apply(owner, argsArray);
+
+Otherwise `this` will be the global (`window`) object.
+
+___
+
+# Prototypes
 
 ---
 
 ## Class based inheritance
 
----
-
-## JavaScript only knows objects and 
+Inheritance by extending a class (blueprint) and instantiating it.
 
 ---
 
-## Scope
+## JavaScript only knows objects
+
+Inheritance by pointing an objects prototype to another object.
 
 ---
 
-## What is `this`?
+## Animal farm
+
+    !javascript
+    var Animal = function() {
+        this.sound = 'blubb';
+    }
+
+    Animal.prototype.makeSound = function() {
+        alert(this.sound + '!');
+    }
+
+    var Dog = function() {
+        this.sound = 'Woof';
+    }
+
+    Dog.prototype = new Animal();
+
+    var Cat = function() {
+        this.sound = 'Meow';
+    }
+
+    Cat.prototype = new Animal();
+
+    var goofy = new Dog();
+    var garfield = new Cat();
+
+    goofy.makeSound();
+    garfield.makeSound();
+
+---
+
+## The true JavaScript way
+
+    !javascript
+    var Animal = {
+        sound: 'blubb',
+        makeSound: function() {
+            alert(this.sound + '!');
+        }
+    }
+
+    var Dog = Object.create(Animal);
+    var Cat = Object.create(Animal);
+
+    Dog.sound = 'woof';
+    Cat.sound = 'meow';
+
+    var goofy = Object.create(Dog);
+    var garfield = Object.create(Cat);
+
+    goofy.makeSound();
+    garfield.makeSound();
 
 ---
 
