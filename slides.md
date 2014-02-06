@@ -92,16 +92,32 @@ __Accessing object properties__
     // ERROR
     persone.&weird property
 
-__Declaring functions__
+---
+
+## Declaring functions and `arguments`
+
+Functions are treated just like any other variable:
 
     !javascript
     var myFunction = function(arg) {
 
     }
-    // (usually) the same as
+    // the same as
     function myFunction(arg) {
 
     }
+
+`arguments` is a special keyword that contains all parameters passed to the function call:
+
+    function sum() {
+        var sum = 0;
+        for(var i = 0; i < arguments.length; i++) {
+            sum += arguments[i];
+        }
+        return sum;
+    }
+
+    sum(1, 2, 3, 4); // -> 10
 
 ---
 
@@ -301,7 +317,7 @@ Inheritance by pointing an objects prototype to another object.
     }
 
     Animal.prototype.makeSound = function() {
-        alert(this.sound + '!');
+        return this.sound + '!';
     }
 
     var Dog = function() {
@@ -316,11 +332,24 @@ Inheritance by pointing an objects prototype to another object.
 
     Cat.prototype = new Animal();
 
+---
+
+## Calling parent prototype (super) methods
+
+If you want to overwrite an existing method but use the old result you
+need to `call` or `apply` the function with the current `this` reference:
+
+    !javascript
+    Dog.prototype.makeSound = function() {
+        var animalSound = Animal.prototype.makeSound.apply(this, arguments);
+        return this.sound + animalSound;
+    }
+
     var goofy = new Dog();
     var garfield = new Cat();
 
-    goofy.makeSound();
-    garfield.makeSound();
+    alert(goofy.makeSound());
+    alert(garfield.makeSound();
 
 ---
 
