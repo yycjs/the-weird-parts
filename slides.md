@@ -329,6 +329,8 @@ ___
 
 ## Classes vs. Prototypes
 
+<img src="images/proto-class.png" alt="Prototype vs. Class" style="width:680px;">
+
 ---
 
 ## JavaScript only knows objects
