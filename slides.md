@@ -19,7 +19,7 @@ Presentation:
 
 Codecast:
 
-- [jsbin.com/zino/watch](http://jsbin.com/zino/4/watch)
+- [jsbin.com/zino/4/watch](http://jsbin.com/zino/4/watch)
 
 ---
 
